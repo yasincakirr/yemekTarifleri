@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/listeleFragment">
+
+    <fragment
+        android:id="@+id/listeleFragment"
+        android:name="com.example.yemektarifleri.ui.fragment.ListeleFragment"
+        android:label="fragment_listele"
+        tools:layout="@layout/fragment_listele" >
+        <action
+            android:id="@+id/ekleGecis"
+            app:destination="@id/ekleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ekleFragment"
+        android:name="com.example.yemektarifleri.ui.fragment.EkleFragment"
+        android:label="fragment_ekle"
+        tools:layout="@layout/fragment_ekle" >
+        <action
+            android:id="@+id/kayitGecis"
+            app:destination="@id/listeleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guncelleFragment"
+        android:name="com.example.yemektarifleri.ui.fragment.GuncelleFragment"
+        android:label="fragment_guncelle"
+        tools:layout="@layout/fragment_guncelle" />
+</navigation>

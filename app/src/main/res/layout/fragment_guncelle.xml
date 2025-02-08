@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.GuncelleFragment">
+
+    <TextView
+        android:id="@+id/yemekGuncelle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="Yemeği Güncelle."
+        android:textSize="24sp"
+        android:fontFamily="@font/amarante"
+        android:textColor="@color/yaziRengi" />
+
+
+
+    <ImageView
+        android:id="@+id/kayit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/yemekGuncelle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="6dp"
+        android:src="@drawable/baseline_check_24"
+        app:tint="@color/yaziRengi" />
+
+
+    <EditText
+        android:id="@+id/yemekGuncelleAdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/yemekGuncelle"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/kenarlik"
+        android:fontFamily="@font/abril_fatface"
+        android:hint="Yemek İsmi"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/yemekicerikGuncelleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/yemekGuncelleAdEditText"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/kenarlik"
+        android:fontFamily="@font/amarante"
+        android:gravity="top"
+        android:hint="İçindekiler"
+        android:maxLines="2"
+        android:padding="12dp"
+        android:textSize="18sp" />
+
+
+    <EditText
+        android:id="@+id/yemekYapilisGuncelleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/yemekicerikGuncelleEditText"
+        android:background="@drawable/kenarlik"
+        android:layout_marginTop="8dp"
+        android:hint="Yapılış"
+        android:textSize="18sp"
+        android:gravity="top"
+        android:padding="12dp"
+        android:fontFamily="@font/amarante"/>
+
+
+
+</RelativeLayout>

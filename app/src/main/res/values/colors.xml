@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cerceve">#F23005</color>
+    <color name="yaziRengi">#8C0303</color>
 </resources>
