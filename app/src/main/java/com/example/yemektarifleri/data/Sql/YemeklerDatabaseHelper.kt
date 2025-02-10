@@ -72,4 +72,51 @@ class YemeklerDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABAS
     }
 
 
+    fun yemekleriGuncelle(yemek : Yemekler){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_YEMEKAD, yemek.yemekad)
+            put(COLUMN_YEMEKICERIK, yemek.yemekicerik)
+            put(COLUMN_YEMEKYAPILIS, yemek.yemekyapilis)
+
+        }
+
+        val whereClouse = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(yemek.id.toString())
+
+        db.update(TABLE_NAME, values, whereClouse, whereArgs)
+        db.close()
+
+    }
+
+
+    fun idVerilenYemegiDondurenFonksiyon(yemeid: Int): Yemekler{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME Where $COLUMN_ID = $yemeid"
+
+        val cursor = db.rawQuery(query,null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val yemekad = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKAD))
+        val yemekicerik = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKICERIK))
+        val yemekyapilis = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKYAPILIS))
+
+        cursor.close()
+        db.close()
+        return Yemekler(id, yemekad, yemekicerik, yemekyapilis)
+    }
+
+
+
+    fun yemekSil(yemekid: Int){
+        val db = writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(yemekid.toString())
+
+        db.delete(TABLE_NAME, whereClause, whereArgs)
+        db.close()
+    }
+
+
 }

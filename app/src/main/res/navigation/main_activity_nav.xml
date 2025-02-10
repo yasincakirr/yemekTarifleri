@@ -13,6 +13,9 @@
         <action
             android:id="@+id/ekleGecis"
             app:destination="@id/ekleFragment" />
+        <action
+            android:id="@+id/guncelleGecis"
+            app:destination="@id/guncelleFragment" />
     </fragment>
     <fragment
         android:id="@+id/ekleFragment"
@@ -27,5 +30,12 @@
         android:id="@+id/guncelleFragment"
         android:name="com.example.yemektarifleri.ui.fragment.GuncelleFragment"
         android:label="fragment_guncelle"
-        tools:layout="@layout/fragment_guncelle" />
+        tools:layout="@layout/fragment_guncelle" >
+        <argument
+            android:name="yemek"
+            app:argType="com.example.yemektarifleri.data.Entity.Yemekler" />
+        <action
+            android:id="@+id/listeGecis"
+            app:destination="@id/listeleFragment" />
+    </fragment>
 </navigation>

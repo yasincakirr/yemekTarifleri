@@ -22,7 +22,7 @@
 
 
     <ImageView
-        android:id="@+id/kayit"
+        android:id="@+id/guncelle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/yemekGuncelle"

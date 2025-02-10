@@ -3,10 +3,14 @@ package com.example.yemektarifleri.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yemektarifleri.data.Entity.Yemekler
 import com.example.yemektarifleri.data.Sql.YemeklerDatabaseHelper
 import com.example.yemektarifleri.databinding.YemekItemBinding
+import com.example.yemektarifleri.ui.fragment.ListeleFragment
+import com.example.yemektarifleri.ui.fragment.ListeleFragmentDirections
 
 class yemeklerAdapter(var mConntext: Context, var yemekler:List<Yemekler>): RecyclerView.Adapter<yemeklerAdapter.yemekViewHolder>() {
 
@@ -28,6 +32,23 @@ class yemeklerAdapter(var mConntext: Context, var yemekler:List<Yemekler>): Recy
         t.baslikTextView.text = yemek.yemekad
         t.yemekicerik.text = yemek.yemekicerik
         t.yemekYapilis.text = yemek.yemekyapilis
+
+
+
+        t.guncelleButon.setOnClickListener {
+
+            val gecis = ListeleFragmentDirections.guncelleGecis(yemek)
+            Navigation.findNavController(it).navigate(gecis)
+        }
+
+
+        t.silButton.setOnClickListener {
+
+            db.yemekSil(yemek.id)
+            yenileData(db.yemekleriListele())
+            Toast.makeText(mConntext,"Yemek Silindi..",Toast.LENGTH_LONG).show()
+        }
+
 
     }
 
