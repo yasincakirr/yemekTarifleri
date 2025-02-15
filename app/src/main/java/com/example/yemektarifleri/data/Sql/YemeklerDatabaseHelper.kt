@@ -90,22 +90,7 @@ class YemeklerDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABAS
     }
 
 
-    fun idVerilenYemegiDondurenFonksiyon(yemeid: Int): Yemekler{
-        val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME Where $COLUMN_ID = $yemeid"
 
-        val cursor = db.rawQuery(query,null)
-        cursor.moveToFirst()
-
-        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
-        val yemekad = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKAD))
-        val yemekicerik = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKICERIK))
-        val yemekyapilis = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_YEMEKYAPILIS))
-
-        cursor.close()
-        db.close()
-        return Yemekler(id, yemekad, yemekicerik, yemekyapilis)
-    }
 
 
 
